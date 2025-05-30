@@ -1,0 +1,22 @@
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import userRoutes from './routes/user.js';
+import copytradeRoutes from './routes/copytrade.js';
+
+const app = express();
+const PORT = 4000;
+
+app.use(cors());
+app.use(bodyParser.json());
+
+app.use('/api/user', userRoutes);
+app.use('/api/copytrade', copytradeRoutes);
+
+app.get('/', (req, res) => {
+  res.send('CopyTrade Backend Çalışıyor!');
+});
+
+app.listen(PORT, () => {
+  console.log(`Backend ${PORT} portunda çalışıyor.`);
+});
