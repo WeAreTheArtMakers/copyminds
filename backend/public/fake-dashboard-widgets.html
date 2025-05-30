@@ -1,0 +1,92 @@
+<!-- FAKE DASHBOARD WIDGETS HTML (to be included in app.html) -->
+<!-- Toast notification container is handled by JS -->
+<div class="row mb-4">
+  <div class="col-lg-4">
+    <div class="fake-widget-card">
+      <div class="fake-widget-title">Toplam Kâr/Zarar</div>
+      <div class="fake-widget-value" id="fake-pnl">$1,275.32</div>
+      <div class="fake-widget-sublabel">AI Copytrade ile elde edilen toplam sonuç</div>
+    </div>
+    <div class="fake-widget-card">
+      <div class="fake-widget-title">Başarı Oranı</div>
+      <div class="fake-widget-value" id="fake-winrate">%78</div>
+      <div class="fake-widget-sublabel">Kopyalanan işlemlerde başarı yüzdesi</div>
+    </div>
+    <div class="fake-widget-card">
+      <div class="fake-widget-title">Kopyalama Kârı</div>
+      <div class="fake-widget-value" id="fake-copy-profit">$462.18</div>
+      <div class="fake-widget-sublabel">Kopyalanan işlemlerden elde edilen toplam kâr</div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="fake-widget-card">
+      <div class="fake-widget-title">AI Portföyüm</div>
+      <canvas id="fake-pie-chart" height="180"></canvas>
+      <div class="fake-widget-sublabel">Toplam Bakiye: <span id="fake-portfolio-usd">$3,275.32</span></div>
+      <div class="fake-pie-legend" id="fake-pie-legend"></div>
+    </div>
+    <div class="fake-widget-card">
+      <div class="fake-widget-title">Favori Coinler</div>
+      <div class="fake-fav-coins" id="fake-fav-coins"></div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="fake-widget-card">
+      <div class="fake-widget-title">AI’dan Sıcak Sinyaller</div>
+      <div id="fake-ai-signals"></div>
+    </div>
+    <div class="fake-widget-card">
+      <div class="fake-widget-title">Mini Grafikler</div>
+      <canvas id="fake-sparkline-btc" class="fake-sparkline"></canvas>
+      <canvas id="fake-sparkline-eth" class="fake-sparkline"></canvas>
+      <canvas id="fake-sparkline-sol" class="fake-sparkline"></canvas>
+    </div>
+  </div>
+</div>
+<div class="fake-widget-card mb-4">
+  <div class="fake-widget-title">İşlem Geçmişi ve Filtreleme</div>
+  <div class="mb-2">
+    <input type="date" id="fake-filter-date" style="margin-right:10px;" />
+    <select id="fake-filter-symbol" style="margin-right:10px;"><option value="">Coin</option><option>BTC/USDT</option><option>ETH/USDT</option><option>SOL/USDT</option><option>AVAX/USDT</option></select>
+    <select id="fake-filter-exchange" style="margin-right:10px;"><option value="">Borsa</option><option>Binance</option><option>OKX</option><option>Bybit</option><option>Bitget</option></select>
+    <select id="fake-filter-result"><option value="">Sonuç</option><option value="pos">Kâr</option><option value="neg">Zarar</option></select>
+  </div>
+  <table class="fake-table" id="fake-trade-history">
+    <thead><tr><th>Tarih</th><th>Coin</th><th>Borsa</th><th>Yön</th><th>Miktar</th><th>Fiyat</th><th>Sonuç</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+<!-- Otomatik Kopyala ve Risk Yönetimi -->
+<div class="fake-widget-card mb-4">
+  <div class="fake-widget-title">Otomatik Kopyala & Risk Yönetimi</div>
+  <div class="mb-2">
+    <label><input type="checkbox" id="fake-auto-copy" checked> AI sinyallerini otomatik kopyala</label>
+    <label style="margin-left:24px;">Limit: <input type="number" value="1000" min="10" style="width:80px;" /></label>
+    <label style="margin-left:24px;">Stop-Loss: <input type="number" value="5" min="1" style="width:60px;" />%</label>
+    <label style="margin-left:24px;">Take-Profit: <input type="number" value="15" min="1" style="width:60px;" />%</label>
+  </div>
+</div>
+<!-- Onboarding, FAQ, Support Chat -->
+<div id="fake-onboarding" class="fake-onboarding" style="display:none;">
+  <div class="fake-onboarding-content">
+    <h2>Hoş geldin 👋</h2>
+    <p>AI Copytrade Dashboard’unun yeni özelliklerini keşfet! Canlı grafikler, AI sinyalleri, otomatik kopyalama ve daha fazlası seni bekliyor.</p>
+    <button onclick="document.getElementById('fake-onboarding').style.display='none'">Başla</button>
+  </div>
+</div>
+<div class="fake-widget-card mb-4">
+  <div class="fake-widget-title">Sıkça Sorulan Sorular</div>
+  <div class="fake-faq"><h4>Copytrade nedir?</h4><p>Copytrade, başarılı trader’ların işlemlerini otomatik olarak kopyalamanı sağlar.</p></div>
+  <div class="fake-faq"><h4>AI sinyalleri güvenilir mi?</h4><p>AI sinyalleri geçmiş veriye ve istatistiklere göre üretilir, ancak yatırım tavsiyesi değildir.</p></div>
+  <div class="fake-faq"><h4>Risk yönetimi nasıl çalışır?</h4><p>Limit, stop-loss ve take-profit ayarları ile riskini kontrol edebilirsin.</p></div>
+</div>
+<div class="fake-support-chat" id="fake-support-chat" style="display:none;">
+  <div class="fake-support-chat-header">Canlı Destek</div>
+  <div class="fake-support-chat-body" id="fake-support-chat-body">
+    <div><b>AI Destek:</b> Merhaba! Size nasıl yardımcı olabilirim?</div>
+  </div>
+  <div class="fake-support-chat-footer">
+    <input type="text" id="fake-support-input" placeholder="Mesajınızı yazın..." onkeydown="if(event.key==='Enter'){FakeDashboard.sendSupportMessage()}" />
+  </div>
+</div>
+<button style="position:fixed;right:24px;bottom:140px;z-index:9999;" onclick="document.getElementById('fake-support-chat').style.display='flex'">💬</button>
