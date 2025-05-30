@@ -1,0 +1,66 @@
+/* Responsive Design */
+
+/* Small devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .hero-cta .btn {
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .dashboard-card h4 {
+        font-size: 1.5rem;
+    }
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+    .cta-section p {
+        font-size: 1rem;
+    }
+    .footer-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+    .roadmap-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .roadmap-item .icon-container {
+        margin-bottom: 1rem;
+    }
+    .roadmap-col::before {
+        left: 50%; /* Center the line */
+        transform: translateX(-50%);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+    }
+    .roadmap-col::before {
+        left: 20px; /* Align line to left of items */
+        transform: none;
+    }
+    .roadmap-item {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+}
