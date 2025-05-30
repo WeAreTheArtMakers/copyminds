@@ -1,43 +1,48 @@
-// routes/user.js
 import { Router } from 'express';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const router = Router();
-
 const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
-// data klasörünün içindeki users.json dosyası
+const __dirname = path.dirname(__filename);
 const USERS_FILE = path.join(__dirname, '../data/users.json');
 
 /**
- * users.json'u okur; yoksa [] döner ve dosyayı yaratır.
+ * Reads users.json, returns array. If file is missing or contains invalid JSON,
+ * resets it to an empty array.
  */
 async function readUsers() {
+  let raw;
   try {
-    const data = await fs.readFile(USERS_FILE, 'utf-8');
-    return JSON.parse(data);
-  }
-  catch (err) {
+    raw = await fs.readFile(USERS_FILE, 'utf-8');
+  } catch (err) {
     if (err.code === 'ENOENT') {
-      // Dosya yoksa boş dizi olarak yarat
+      // File not found: create a new empty array
       await fs.writeFile(USERS_FILE, '[]', 'utf-8');
       return [];
     }
     throw err;
   }
+  try {
+    return JSON.parse(raw);
+  } catch (err) {
+    // Invalid JSON: warn and reset file
+    console.warn('users.json invalid, resetting:', err);
+    await fs.writeFile(USERS_FILE, '[]', 'utf-8');
+    return [];
+  }
 }
 
 /**
- * users dizisini pretty‐print ile users.json'a yazar.
+ * Writes users array to users.json with pretty-print.
  */
 async function writeUsers(users) {
   const json = JSON.stringify(users, null, 2);
   await fs.writeFile(USERS_FILE, json, 'utf-8');
 }
 
-// POST /api/user/register
+// Register endpoint
 router.post('/register', async (req, res, next) => {
   try {
     const { username, password } = req.body;
@@ -52,16 +57,14 @@ router.post('/register', async (req, res, next) => {
 
     users.push({ username, password });
     await writeUsers(users);
-
     return res.status(201).json({ success: true });
-  }
-  catch (err) {
+  } catch (err) {
     console.error('Register error:', err);
     next(err);
   }
 });
 
-// POST /api/user/login
+// Login endpoint
 router.post('/login', async (req, res, next) => {
   try {
     const { username, password } = req.body;
@@ -73,8 +76,7 @@ router.post('/login', async (req, res, next) => {
     }
 
     return res.json({ success: true });
-  }
-  catch (err) {
+  } catch (err) {
     console.error('Login error:', err);
     next(err);
   }
