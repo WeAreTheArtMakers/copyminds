@@ -49,6 +49,37 @@ img, canvas, video {
 }
 
 
+/* A. Copytrade Bölümü Taşmasını Kesin Önlemek İçin */
+.copytrade-quick-section,
+.modern-invest-cards-section {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+/* B. Kart İçeriklerini Taşmadan Küçültmek İçin */
+.copytrade-quick-section .modern-card,
+.modern-invest-cards-section .invest-card {
+  box-sizing: border-box;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* C. .container > .row Taşmasını Kesin Önlemek İçin */
+.container > .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* D. Seçim Kutusu ve Buton Gibi Genişlik Sabitleyenleri esnetmek İçin */
+.copytrade-quick-section select.form-select,
+.copytrade-quick-section button.ultra-modern-primary-btn {
+  min-width: 0 !important;
+  width: auto !important;
+  flex: 1 1 auto !important;
+}
+
 .dark-theme {
     background: var(--background-dark);
 }
