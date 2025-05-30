@@ -1,8 +1,7 @@
 # Copymind Backend
 
 Bu belge, Geliştirilmekte olan Copymind projesinin backend bileşeninin kurulumunu, yapılandırılmasını ve kullanımını açıklar.
-<img src="https://wearetheartmakers.com/cmtest/brain2.ico" />
-
+<img src="https://wearetheartmakers.com/cmtest/brain2.ico" /> .
 
 ## İçindekiler
 1. [Genel Bakış](#genel-bakış)
