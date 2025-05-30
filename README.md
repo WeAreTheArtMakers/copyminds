@@ -39,8 +39,8 @@ Copymind backend, kullanıcıların metin ve yapay zeka destekli içerik eşleş
 
 ### Depoyu Klonlama
 ```bash
-git clone https://github.com/YourOrg/copymind-backend.git
-cd copymind-backend
+git clone https://github.com/WeAreTheArtMakers/copyminds.git
+cd copyminds
 ```
 
 ### Bağımlılıkların Yüklenmesi
