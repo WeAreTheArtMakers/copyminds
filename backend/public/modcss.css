@@ -39,6 +39,7 @@ body {
     background: var(--background-dark);
     color: var(--text-primary);
     line-height: 1.6;
+    outline: 2px solid red; /* görsel işaret için */
     overflow-x: hidden;
 }
 
