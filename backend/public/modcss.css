@@ -42,6 +42,13 @@ body {
     overflow-x: hidden;
 }
 
+img, canvas, video {
+  max-width: 100%;
+  height: auto;    /* yüksekliği orantılı korur */
+  display: block;  /* inline-block’ın boşluk sorununu önler */
+}
+
+
 .dark-theme {
     background: var(--background-dark);
 }
@@ -1317,6 +1324,12 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
+img, canvas, video {
+  max-width: 100%;
+  height: auto;    /* yüksekliği orantılı korur */
+  display: block;  /* inline-block’ın boşluk sorununu önler */
+}
+
 .modern-trader-avatar::before {
     content: '';
     position: absolute;
@@ -1412,6 +1425,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Modern Chart Container */
 .modern-chart-container {
     height: 120px;
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin: 2rem 0;
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(30, 148, 245, 0.05) 100%);
     border: 1px solid rgba(48, 54, 61, 0.3);
@@ -1428,6 +1444,9 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
+    max-width: 100% !important;
+      padding-left: 1rem;
+      padding-right: 1rem;
     background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 170, 0.1) 50%, transparent 100%);
     animation: chart-glow 2s ease-in-out infinite alternate;
 }
