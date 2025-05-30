@@ -41,6 +41,27 @@ let chartInstances = {};
 
 // Initialize all components when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
+    // --- LOGOUT BUTTON HANDLER ---
+    const logoutBtn     = document.getElementById('nav-logout-btn');
+    const authContainer = document.getElementById('auth-container');
+    const userArea      = document.getElementById('user-area');
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            // 1) Kimlik doğrulama token'ını temizle (örnek key: 'authToken')
+            localStorage.removeItem('authToken');
+            sessionStorage.clear();
+
+            // 2) Dashboard'u gizle, login panelini göster
+            if (userArea)      userArea.classList.add('d-none');
+            if (authContainer) authContainer.classList.remove('d-none');
+
+            // 3) İsteğe bağlı: sayfayı yenile
+            // location.reload();
+        });
+    }
+    // ---------------------------------
+
     // Initialize navigation
     initializeNavigation();
     
