@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-// Render veya benzeri platformlarda doğru port'u kullan
+// Render ya da başka bir platform PORT değişkeni atıyorsa onu al, yoksa 4000
 const PORT = process.env.PORT || 4000;
 
 app.use(cors());
@@ -29,11 +29,12 @@ app.get('/', (req, res) => {
 app.use('/api/user', userRoutes);
 app.use('/api/copytrade', copytradeRoutes);
 
-// Eğer istersen bir health check endpoint'i ekle
+// Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'OK' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend ${PORT} portunda çalışıyor.`);
+// Tüm arayüzlerden gelen isteklere açık şekilde dinle
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Backend ${PORT} portunda, tüm arayüzlerden erişime açık.`);
 });
