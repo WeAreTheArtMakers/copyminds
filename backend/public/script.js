@@ -1,4 +1,3 @@
-// Waitlist data
 let waitlistData = {
     count: 100,
     users: []
@@ -39,7 +38,6 @@ const topTradersData = [
 // Store chart instances to prevent memory leaks
 let chartInstances = {};
 
-// Initialize all components when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
     // --- LOGOUT BUTTON HANDLER ---
     const logoutBtn     = document.getElementById('nav-logout-btn');
@@ -48,53 +46,30 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     if (logoutBtn) {
         logoutBtn.addEventListener('click', () => {
-            // 1) Kimlik doğrulama token'ını temizle (örnek key: 'authToken')
             localStorage.removeItem('authToken');
             sessionStorage.clear();
-
-            // 2) Dashboard'u gizle, login panelini göster
             if (userArea)      userArea.classList.add('d-none');
             if (authContainer) authContainer.classList.remove('d-none');
-
-            // 3) İsteğe bağlı: sayfayı yenile
-            // location.reload();
+            logoutBtn.classList.add('d-none');
         });
     }
-    // ---------------------------------
 
-    // Initialize navigation
     initializeNavigation();
-    
-    // Initialize language functionality
     initializeLanguage();
-    
-    // Initialize waitlist functionality
     await initializeWaitlist();
-    
-    // Initialize charts with delay to ensure elements are ready
-    setTimeout(() => {
-        initializeCharts();
-    }, 500);
-    
-    // Initialize animations
+    setTimeout(() => initializeCharts(), 500);
     initializeAnimations();
-    
-    // Initialize scroll effects
     initializeScrollEffects();
 });
 
 // Initialize charts with proper error handling
 function initializeCharts() {
-    // Only initialize if Chart.js is loaded
     if (typeof Chart === 'undefined') {
         console.warn('Chart.js not loaded');
         return;
     }
-    
-    // Initialize hero chart
     createHeroChart();
 
-    // Initialize ultra-line-chart
     const ultraLine = document.getElementById('ultra-line-chart');
     if (ultraLine) {
         if (chartInstances['ultra-line-chart']) {
@@ -125,7 +100,6 @@ function initializeCharts() {
         });
     }
 
-    // Initialize ultra-pie-chart
     const ultraPie = document.getElementById('ultra-pie-chart');
     if (ultraPie) {
         if (chartInstances['ultra-pie-chart']) {
@@ -150,10 +124,8 @@ function initializeCharts() {
         });
     }
 
-    // Initialize trader charts
     initializeLargeTraderCharts();
 }
-
 // Initialize animations with proper element checks
 function initializeAnimations() {
     // Counter animations
