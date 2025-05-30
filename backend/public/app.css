@@ -32,6 +32,52 @@ img, canvas, video {
   }
 }
 
+/* 1. Global taşmayı gizle */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 2. Bu başlık ve açıklamayı da sığdır */
+.ultra-section-title,
+.ultra-section-title + .text-secondary {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* 3. Kartın kendi içindeki overflow’u gizle */
+.ultra-modern-copy-card {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 4. Küçük ekranlarda avatar ve içerik alt alta sarsın */
+@media (max-width: 991.98px) {
+  .ultra-modern-copy-card {
+    flex-wrap: wrap !important;    /* flex-md-nowrap’i geçersiz kılar */
+  }
+  .ultra-modern-copy-card .copy-avatar {
+    flex: 0 0 100% !important;     /* avatar tam genişlik */
+    margin-right: 0 !important;
+    margin-bottom: 1rem !important;
+  }
+  .ultra-modern-copy-card .flex-grow-1 {
+    flex: 0 0 100% !important;     /* metin-form bloğu tam genişlik */
+  }
+}
+
+/* 5. Row’un container dışına taşmasını engelle */
+.row.justify-content-center.g-4 {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+
+
 .row, .flex-row, .top-traders-list {
   display: flex;
   flex-wrap: wrap;      /* yeni satıra geçişi sağlar */
