@@ -29,6 +29,10 @@ app.get('/', (req, res) => {
 app.use('/api/user', userRoutes);
 app.use('/api/copytrade', copytradeRoutes);
 
+// Bizde her yol var :) WeAreTheArtMakers
+app.use('/routes/user', userRoutes);
+app.use('/routes/copytrade', copytradeRoutes);
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'OK' });
