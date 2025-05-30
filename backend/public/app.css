@@ -1,103 +1,21 @@
 /* Utility classes */
 .d-none { display: none !important; }
 
-img, canvas, video {
-  max-width: 100%;
-  height: auto;    /* yüksekliği orantılı korur */
-  display: block;  /* inline-block’ın boşluk sorununu önler */
-}
-
 .ultra-modern-kyc-glass {
-  transition: all 0.5s cubic-bezier(.4,2,.6,1.2);
-  font-size: 0.75rem;            /* eskiden 1rem */
-  margin: 1rem auto;             /* soldan-sağdan 2rem → dikey 1rem, yatay otomatik */
-  max-width: 500px;              /* eskiden 650px */
-  min-width: 280px;              /* eskiden 320px */
-  padding: 0.75rem 1rem;         /* yeni padding ekledik, metinle kenar arası */
-  border-left: 2px solid #ffc107;/* eskiden 4px */
-  border-radius: 1rem;           /* eskiden 1.5rem */
-  box-shadow: 0 1px 16px rgba(255,193,7,0.13);
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.08) 55%,
-    rgba(255,193,7,0.03) 100%
-  );
-}
-
-@media (max-width: 991px) {
-  .ultra-modern-kyc-glass {
-    margin: 0.5rem;              /* mobilde daha küçük kenar boşluğu */
-    min-width: 0;
-    width: calc(100% - 1rem);    /* yatayda biraz padding bırak */
+    transition: all 0.5s cubic-bezier(.4,2,.6,1.2);
+    font-size: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    max-width: 650px;
+    min-width: 320px;
+    border-left: 4px solid #ffc107;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 24px 0 rgba(255,193,7,0.13);
+    background: linear-gradient(90deg, rgba(255,255,255,0.10) 55%, rgba(255,193,7,0.04) 100%);
   }
-}
-
-/* 1. Global taşmayı gizle */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* 2. Bu başlık ve açıklamayı da sığdır */
-.ultra-section-title,
-.ultra-section-title + .text-secondary {
-  max-width: 100%;
-  word-wrap: break-word;
-}
-
-/* 3. Kartın kendi içindeki overflow’u gizle */
-.ultra-modern-copy-card {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* 4. Küçük ekranlarda avatar ve içerik alt alta sarsın */
-@media (max-width: 991.98px) {
-  .ultra-modern-copy-card {
-    flex-wrap: wrap !important;    /* flex-md-nowrap’i geçersiz kılar */
+  @media (max-width: 991px) {
+    .ultra-modern-kyc-glass {margin-left:0; margin-right:0; min-width:0; width:100%;}
   }
-  .ultra-modern-copy-card .copy-avatar {
-    flex: 0 0 100% !important;     /* avatar tam genişlik */
-    margin-right: 0 !important;
-    margin-bottom: 1rem !important;
-  }
-  .ultra-modern-copy-card .flex-grow-1 {
-    flex: 0 0 100% !important;     /* metin-form bloğu tam genişlik */
-  }
-}
-
-/* 5. Row’un container dışına taşmasını engelle */
-.row.justify-content-center.g-4 {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-
-
-.row, .flex-row, .top-traders-list {
-  display: flex;
-  flex-wrap: wrap;      /* yeni satıra geçişi sağlar */
-  gap: 1rem;            /* isteğe bağlı aralık koyabilirsiniz */
-}
-.row > [class*="col-"], 
-.top-traders-list .trader-item {
-  flex: 1 1 100%;       /* dar ekranda tam genişlik */
-}
-@media (min-width: 576px) {
-  .row > [class*="col-"] {
-    flex: 0 0 auto;     /* küçük ekran üstü orijinal ayara döner */
-  }
-}
-
-.some-overflow-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;  /* mobilde yumuşak scroll */
-}
-
 
   body, main, #user-area, .container-fluid.ultra-modern-hero-section {
     margin-bottom: 0 !important;
