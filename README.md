@@ -121,8 +121,8 @@ npm test
 - Kubernetes veya Docker Compose ile üretime alınabilir.
 
 ## Katkıda Bulunanlar
-- [WATAM](https://github.com/WeAreTheArtMakers/copyminds)
-- [B.G.](https://github.com/barangulesen)
+- [WATAM](https://wearetheartmakers.com)
+- [STREET MONEY](https://modfxmarket.com)
 
 ## Lisans
 WATAM
