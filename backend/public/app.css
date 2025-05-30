@@ -2,20 +2,29 @@
 .d-none { display: none !important; }
 
 .ultra-modern-kyc-glass {
-    transition: all 0.5s cubic-bezier(.4,2,.6,1.2);
-    font-size: 1rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    max-width: 650px;
-    min-width: 320px;
-    border-left: 4px solid #ffc107;
-    border-radius: 1.5rem;
-    box-shadow: 0 2px 24px 0 rgba(255,193,7,0.13);
-    background: linear-gradient(90deg, rgba(255,255,255,0.10) 55%, rgba(255,193,7,0.04) 100%);
+  transition: all 0.5s cubic-bezier(.4,2,.6,1.2);
+  font-size: 0.75rem;            /* eskiden 1rem */
+  margin: 1rem auto;             /* soldan-sağdan 2rem → dikey 1rem, yatay otomatik */
+  max-width: 500px;              /* eskiden 650px */
+  min-width: 280px;              /* eskiden 320px */
+  padding: 0.75rem 1rem;         /* yeni padding ekledik, metinle kenar arası */
+  border-left: 2px solid #ffc107;/* eskiden 4px */
+  border-radius: 1rem;           /* eskiden 1.5rem */
+  box-shadow: 0 1px 16px rgba(255,193,7,0.13);
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.08) 55%,
+    rgba(255,193,7,0.03) 100%
+  );
+}
+
+@media (max-width: 991px) {
+  .ultra-modern-kyc-glass {
+    margin: 0.5rem;              /* mobilde daha küçük kenar boşluğu */
+    min-width: 0;
+    width: calc(100% - 1rem);    /* yatayda biraz padding bırak */
   }
-  @media (max-width: 991px) {
-    .ultra-modern-kyc-glass {margin-left:0; margin-right:0; min-width:0; width:100%;}
-  }
+}
 
   body, main, #user-area, .container-fluid.ultra-modern-hero-section {
     margin-bottom: 0 !important;
@@ -23,6 +32,7 @@
     padding-top: 45px !important;
     padding-bottom: 0px !important;
   }
+
 
 
 /* Ultra-modern dashboard arka planı ve animasyonlar */
