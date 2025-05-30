@@ -1,7 +1,3 @@
-// CopyMinds - Modern Dark Theme with Multi-language Support
-
-
-
 // Waitlist data
 let waitlistData = {
     count: 100,
